@@ -31,7 +31,7 @@ export default function About() {
               <h3 className="text-2xl font-semibold text-white">Education</h3>
             </div>
             <div className="bg-slate-800/50 p-6 rounded-2xl border border-slate-700/50 hover:border-blue-500/30 transition-colors">
-              <h4 className="text-xl font-bold text-white mb-2">B.Sc. Computer Science and Engineering</h4>
+              <h4 className="text-xl font-bold text-white mb-2">B.E. Computer Science and Engineering</h4>
               <p className="text-blue-400 font-medium mb-2">Erode Sengunthar Engineering College</p>
               <div className="flex justify-between items-center text-slate-400 text-sm">
                 <span>Graduated: 2025</span>
