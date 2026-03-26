@@ -75,7 +75,7 @@ export default function Hero() {
             <div className="relative w-64 h-80 lg:w-[320px] lg:h-[400px]">
               {/* Subtle architectural frame instead of wild colors */}
               <div className="absolute inset-0 border border-[#222222] translate-x-4 translate-y-4"></div>
-              <div className="absolute inset-0 bg-[#0a0a0a] border border-[#333333] overflow-hidden transition-all duration-700">
+              <div className="absolute inset-0 bg-[#0a0a0a] border border-[#333333] overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
                 <img 
                   src={profileImg} 
                   alt="Dheena R S" 
