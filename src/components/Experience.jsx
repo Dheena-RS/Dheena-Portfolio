@@ -1,65 +1,55 @@
 import { motion } from 'framer-motion';
-import { Briefcase } from 'lucide-react';
+
+const experiences = [
+  {
+    role: "Data Warehouse Engineer",
+    company: "NCR Atleos",
+    duration: "Feb 2025 - Dec 2025",
+    description: "Specialized in integrating ERP modules with data warehousing systems to ensure seamless data flow and integrity. Developed robust data pipelines and utilized SQL and Excel for ETL testing and data analysis. Designed multipage Power BI dashboards with slicers to help stakeholders drill down by region and product."
+  }
+];
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-20 relative">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="experience" className="py-24 relative z-10 border-t border-[#111111]">
+      <div className="max-w-6xl mx-auto px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-16"
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="mb-16 text-center md:text-left"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Professional <span className="text-blue-500">Experience</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-[#fafafa] mb-4">
+            Experience.
           </h2>
-          <div className="w-20 h-1 bg-blue-500 rounded-full"></div>
+          <div className="w-12 h-px bg-[#333333] mx-auto md:mx-0"></div>
         </motion.div>
 
-        <div className="relative border-l border-slate-700/50 pl-8 ml-4 md:ml-0">
-          {/* Timeline Item */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="relative mb-12"
-          >
-            {/* Timeline Dot */}
-            <div className="absolute -left-[41px] top-1 bg-blue-500 rounded-full p-2 border-4 border-slate-900">
-              <Briefcase size={16} className="text-white" />
-            </div>
-
-            <div className="bg-slate-800/40 border border-slate-700/50 rounded-2xl p-6 hover:border-blue-500/30 transition-colors">
-              <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4 gap-2">
+        <div className="space-y-8">
+          {experiences.map((exp, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: idx * 0.1, ease: "easeOut" }}
+              className="card-minimal p-8 rounded-md hover:border-[#444444]"
+            >
+              <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
                 <div>
-                  <h3 className="text-2xl font-bold text-white">Data Warehouse Engineer</h3>
-                  <p className="text-blue-400 font-medium text-lg">NCR Atleos</p>
+                  <h3 className="text-xl font-bold text-[#fafafa] tracking-tight">{exp.role}</h3>
+                  <div className="text-[#cccccc] font-medium mt-1">{exp.company}</div>
                 </div>
-                <div className="flex flex-col md:items-end text-slate-400 text-sm">
-                  <span className="bg-slate-700/50 px-3 py-1 rounded-full mb-2 w-fit">Feb 2025 – Dec 2025</span>
-                  <span>Remote</span>
+                <div className="px-3 py-1 bg-[#111111] text-[#888888] rounded-sm text-sm border border-[#222222] inline-block w-fit">
+                  {exp.duration}
                 </div>
               </div>
-              
-              <ul className="space-y-3 text-slate-300">
-                <li className="flex gap-3">
-                  <span className="text-blue-500 mt-1">▹</span>
-                  <span>Specialized in integrating ERP modules with data warehousing systems to ensure seamless data flow and integrity.</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-blue-500 mt-1">▹</span>
-                  <span>Developed robust data pipelines and utilized SQL and Excel for ETL testing and data analysis.</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-blue-500 mt-1">▹</span>
-                  <span>Designed multipage Power BI dashboards with slicers to help stakeholders drill down by region and product.</span>
-                </li>
-              </ul>
-            </div>
-          </motion.div>
+              <p className="text-[#888888] font-light leading-relaxed">
+                {exp.description}
+              </p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

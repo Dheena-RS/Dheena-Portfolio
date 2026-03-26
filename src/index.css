@@ -1,23 +1,34 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-500: #3b82f6;
-  --color-brand-600: #2563eb;
+  --color-brand-500: #222222;
+  --color-accent: #ffffff;
 }
 
 @layer base {
   :root {
-    --background: #0f172a;
-    --foreground: #f8fafc;
+    --background: #000000; 
+    --foreground: #fafafa;
   }
   body {
     background-color: var(--background);
     color: var(--foreground);
     font-family: 'Inter', system-ui, sans-serif;
+    overflow-x: hidden;
   }
 }
 
 /* Smooth scrolling behavior */
 html {
   scroll-behavior: smooth;
+}
+
+/* Custom Utilities for Minimalist Design */
+@layer utilities {
+  .subtle-blur {
+    @apply bg-black/70 backdrop-blur-xl border-b border-white/5;
+  }
+  .card-minimal {
+    @apply bg-[#0a0a0a] border border-[#222222] transition-colors duration-300;
+  }
 }

@@ -10,9 +10,9 @@ import Contact from './components/Contact';
 
 function App() {
   return (
-    <div className="min-h-screen bg-slate-900 text-slate-50 selection:bg-blue-500/30">
+    <div className="min-h-screen bg-black text-[#fafafa] selection:bg-white/20 overflow-hidden relative font-sans">
       <Navbar />
-      <main>
+      <main className="relative z-10">
         <Hero />
         <Skills />
         <Experience />

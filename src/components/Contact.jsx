@@ -1,16 +1,12 @@
 import { motion } from 'framer-motion';
-import { Mail, MapPin, Send } from 'lucide-react';
-
+import { Mail, MapPin, Send, Phone } from 'lucide-react';
 import { useState } from 'react';
 
-// To make this form work:
-// 1. Get a free Access Key from https://web3forms.com/
-// 2. Replace "YOUR_ACCESS_KEY_HERE" with your actual key
 const WEB3FORMS_ACCESS_KEY = "54dbb303-a903-44fe-b7d2-356ab65adf65";
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [status, setStatus] = useState('idle'); // 'idle' | 'submitting' | 'success' | 'error'
+  const [status, setStatus] = useState('idle');
   const [errorMessage, setErrorMessage] = useState('');
 
   const handleSubmit = async (e) => {
@@ -36,7 +32,6 @@ export default function Contact() {
       if (response.status === 200) {
         setStatus('success');
         setFormData({ name: '', email: '', message: '' });
-        // Reset success message after 5 seconds
         setTimeout(() => setStatus('idle'), 5000);
       } else {
         setStatus('error');
@@ -53,79 +48,87 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 relative bg-slate-900/50 border-t border-slate-800/50">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-24 relative z-10 border-t border-[#111111]">
+      <div className="max-w-6xl mx-auto px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           className="mb-16 text-center md:text-left"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Get In <span className="text-blue-500">Touch</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-[#fafafa] mb-4">
+            Get In Touch.
           </h2>
-          <div className="w-20 h-1 bg-blue-500 rounded-full mx-auto md:mx-0"></div>
+          <div className="w-12 h-px bg-[#333333] mx-auto md:mx-0"></div>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12 items-start">
-          {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
           >
-            <h3 className="text-2xl font-semibold text-white mb-6">Let's Connect</h3>
-            <p className="text-slate-400 mb-8 leading-relaxed">
+            <h3 className="text-2xl font-bold text-[#fafafa] mb-6 tracking-tight">Let's Connect</h3>
+            <p className="text-[#888888] mb-10 leading-relaxed font-light text-lg">
               I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions. Feel free to reach out to me!
             </p>
             
             <div className="space-y-6">
-              <div className="flex items-center gap-4">
-                <div className="bg-slate-800/50 p-4 rounded-xl border border-slate-700/50 text-blue-500 shadow-sm">
-                  <Mail size={24} />
+              <div className="flex items-center gap-6 group">
+                <div className="p-4 bg-[#111111] rounded-sm border border-[#222222] text-[#fafafa] group-hover:bg-[#222222] transition-colors duration-300">
+                  <Mail size={20} strokeWidth={1.5} />
                 </div>
                 <div>
-                  <h4 className="text-white font-medium mb-1">Email</h4>
-                  <a href="mailto:rsdheenacse@gmail.com" className="text-slate-400 hover:text-blue-400 transition-colors">rsdheenacse@gmail.com</a>
+                  <h4 className="text-[#fafafa] font-bold mb-1 tracking-wide text-sm uppercase">Email</h4>
+                  <a href="mailto:rsdheenacse@gmail.com" className="text-[#888888] hover:text-[#fafafa] transition-colors font-light">rsdheenacse@gmail.com</a>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-6 group">
+                <div className="p-4 bg-[#111111] rounded-sm border border-[#222222] text-[#fafafa] group-hover:bg-[#222222] transition-colors duration-300">
+                  <Phone size={20} strokeWidth={1.5} />
+                </div>
+                <div>
+                  <h4 className="text-[#fafafa] font-bold mb-1 tracking-wide text-sm uppercase">Phone</h4>
+                  <a href="tel:+916374382550" className="text-[#888888] hover:text-[#fafafa] transition-colors font-light">+91 6374382550</a>
                 </div>
               </div>
               
-              <div className="flex items-center gap-4">
-                <div className="bg-slate-800/50 p-4 rounded-xl border border-slate-700/50 text-blue-500 shadow-sm">
-                  <MapPin size={24} />
+              <div className="flex items-center gap-6 group">
+                <div className="p-4 bg-[#111111] rounded-sm border border-[#222222] text-[#fafafa] group-hover:bg-[#222222] transition-colors duration-300">
+                  <MapPin size={20} strokeWidth={1.5} />
                 </div>
                 <div>
-                  <h4 className="text-white font-medium mb-1">Location</h4>
-                  <p className="text-slate-400">Dharmapuri, Tamil Nadu, India</p>
+                  <h4 className="text-[#fafafa] font-bold mb-1 tracking-wide text-sm uppercase">Location</h4>
+                  <p className="text-[#888888] font-light">Dharmapuri, Tamil Nadu, India</p>
                 </div>
               </div>
             </div>
           </motion.div>
 
-          {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="bg-slate-800/40 border border-slate-700/50 rounded-2xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.12)]"
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+            className="card-minimal rounded-md p-8 lg:p-10"
           >
             <form className="space-y-6" onSubmit={handleSubmit}>
               {status === 'success' && (
-                <div className="p-4 bg-green-500/20 border border-green-500/50 rounded-lg text-green-400 text-sm font-medium">
+                <div className="p-4 bg-green-500/10 border border-green-500/20 rounded-sm text-green-400 text-sm font-medium">
                   Thanks for reaching out! Your message was sent successfully.
                 </div>
               )}
               {status === 'error' && (
-                <div className="p-4 bg-red-500/20 border border-red-500/50 rounded-lg text-red-400 text-sm font-medium">
+                <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-sm text-red-400 text-sm font-medium">
                   {errorMessage}
                 </div>
               )}
               
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-slate-300 mb-2">Name</label>
+                <label htmlFor="name" className="block text-xs font-bold text-[#888888] mb-2 tracking-widest uppercase">Name</label>
                 <input 
                   type="text" 
                   id="name" 
@@ -133,12 +136,12 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   disabled={status === 'submitting'}
-                  className="w-full bg-slate-900/50 border border-slate-700/80 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors disabled:opacity-50"
+                  className="w-full bg-[#111111] border border-[#222222] rounded-sm px-4 py-3 text-[#fafafa] focus:outline-none focus:border-[#555555] transition-colors duration-300 disabled:opacity-50 placeholder-[#444444]"
                   placeholder="Your Name"
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-2">Email</label>
+                <label htmlFor="email" className="block text-xs font-bold text-[#888888] mb-2 tracking-widest uppercase">Email</label>
                 <input 
                   type="email" 
                   id="email" 
@@ -146,12 +149,12 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   disabled={status === 'submitting'}
-                  className="w-full bg-slate-900/50 border border-slate-700/80 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors disabled:opacity-50"
+                  className="w-full bg-[#111111] border border-[#222222] rounded-sm px-4 py-3 text-[#fafafa] focus:outline-none focus:border-[#555555] transition-colors duration-300 disabled:opacity-50 placeholder-[#444444]"
                   placeholder="your.email@example.com"
                 />
               </div>
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-slate-300 mb-2">Message</label>
+                <label htmlFor="message" className="block text-xs font-bold text-[#888888] mb-2 tracking-widest uppercase">Message</label>
                 <textarea 
                   id="message" 
                   rows={4}
@@ -159,17 +162,17 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   disabled={status === 'submitting'}
-                  className="w-full bg-slate-900/50 border border-slate-700/80 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors resize-none disabled:opacity-50"
+                  className="w-full bg-[#111111] border border-[#222222] rounded-sm px-4 py-3 text-[#fafafa] focus:outline-none focus:border-[#555555] transition-colors duration-300 resize-none disabled:opacity-50 placeholder-[#444444]"
                   placeholder="Tell me about your project..."
                 ></textarea>
               </div>
               <button 
                 type="submit"
                 disabled={status === 'submitting'}
-                className="w-full bg-blue-600 hover:bg-blue-500 text-white font-medium py-3 px-6 rounded-lg flex items-center justify-center gap-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed group"
+                className="w-full bg-[#fafafa] hover:bg-[#e0e0e0] text-[#000000] font-bold py-3 px-6 rounded-sm flex items-center justify-center gap-2 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {status === 'submitting' ? 'Sending...' : 'Send Message'} 
-                {status !== 'submitting' && <Send size={18} className="group-hover:translate-x-1 transition-transform" />}
+                {status !== 'submitting' && <Send size={16} />}
               </button>
             </form>
           </motion.div>
