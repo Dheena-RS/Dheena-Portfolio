@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { ExternalLink, Ticket, CloudSun } from 'lucide-react';
+import { FaYoutube } from 'react-icons/fa';
 import { FiGithub as Github } from 'react-icons/fi';
 
 const projects = [
@@ -10,6 +11,14 @@ const projects = [
     tech: ['MERN Stack', 'Tailwind CSS', 'TMDB API', 'Stripe API', 'Inngest'],
     liveUrl: 'https://quickshows-xi.vercel.app/',
     githubUrl: 'https://github.com/Dheena-RS/Quick-Show.git'
+  },
+  {
+    title: 'Youtube Clone',
+    description: ' Developed a responsive YouTube clone web application enabling users to browse, search, and watch videos seamlessly.Integrated YouTube Data API to fetch and display video content, including titles, thumbnails, and channel details dynamically.',
+    icon:FaYoutube ,
+    tech: ['ReactJS', 'CSS', 'Vite', 'Youtube Data API'],
+    liveUrl: 'https://youtube-clone-rho-eight-12.vercel.app/',
+    githubUrl: 'https://github.com/Dheena-RS/youtube-clone'
   },
   {
     title: 'Weather Forecast',
